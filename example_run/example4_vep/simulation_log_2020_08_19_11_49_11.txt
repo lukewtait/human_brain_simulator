@@ -1,0 +1,42 @@
+--- Running Brain Simulator ---
+
+Validating input parameters... Done
+Using user supplied atlas
+ Generating connectome... Done 
+Generating ODE parameters... Done 
+Generating ODE function... Done 
+Generating simulation parameters... Done 
+Initializing variables... Done 
+Simulating... Done
+Simulation time 2.45 seconds
+Plotting simulation... Done
+Using user-supplied leadfield matrix 
+ Forward mapping to EEG... Done
+Plotting eeg... Done
+
+
+--- Overview of simulation options ---
+
+- ATLAS - 
+Atlas: custom
+More info: Custom atlas used
+3 regions used in simulations:
+     1
+     2
+     3
+
+
+- CONNECTOME - 
+Connectome: Custom
+
+ - DYNAMIC MODEL - 
+Dynamic model: Custom
+
+- NUMERICAL INTEGRATION - 
+Dynamics were simulated for 5.000000e-01 ms. Numerical integration used a stochastic Euler-Maryuama method with step size 0.000 ms. Simulations were initialized with all variables equal to zero, and 4 ms of simulation was ran and disregarded to avoid effects of transients.
+
+- FORWARD MODELLING TO EEG - 
+Dynamics were mapped to 1 EEG electrodes (described in the table below). The cortical surface and 3 boundary element method (BEM) shells (scalp, skull, brain) were extracted from the Brainstorm software package [https://neuroimage.usc.edu/brainstorm/], using the ICBM152_2016 template model, which is a non-linear average MRI over 152 subjects [Fonov et al. (2009) http://dx.doi.org/10.1016/S1053-8119(09)70884-5]. 8004 sources were distributed along the cortex, and oriented normally to the surface. For each region of the brain, the centroid and average orientation of all source points within the region were used to construct a leadfield matrix from the region to each electrode using the OpenMEEG BEM algorithm [Gramfort et al. (2011) http://dx.doi.org/10.1155/2011/923703] implemented in the Fieldtrip software [Oostenveld et al.(2011)http://dx.doi.org/10.1155/2011/156869].
+EEG electrodes:
+    'vep'
+

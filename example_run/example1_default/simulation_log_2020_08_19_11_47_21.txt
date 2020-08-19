@@ -1,0 +1,101 @@
+--- Running Brain Simulator ---
+
+Validating input parameters... Done
+Generating atlas... Done 
+Generating connectome... Done 
+Generating ODE parameters... Done 
+Generating ODE function... Done 
+Generating simulation parameters... Done 
+Initializing variables... Done 
+Simulating... Done
+Simulation time 0.14 seconds
+Plotting simulation... Done
+Making leadfield matrix... Done
+Forward mapping to EEG... Done
+Plotting eeg... Done
+
+
+--- Overview of simulation options ---
+
+- ATLAS - 
+Atlas: brainnetome40
+More info: Tait et al. (2019) Under review at Clinical Neurophysiology
+40 regions used in simulations (outlined in table below).
+
+- CONNECTOME - 
+Connectome: brainnetome40
+More info: The connectome used was the average healthy connectome described in [Tait et al. (2019) Under review with Clinical Neurophysiology]. This connectome was anatomically constrained by (binary) knowledge of known connections in the brain [Fan et al. (2016) https://dx.doi.org/10.1093%2Fcercor%2Fbhw157], with weights adjusted such that the "hopf" model gave realistic functional connectivity patterns.
+
+ - DYNAMIC MODEL - 
+Dynamic model: hopf
+More info: Each node was modelled as the normal form of a supercritical Hopf bifurcation. The model is implemented as described in [Tait et al. (2019) Under review with Clinical Neurophysiology], and was based on that of [Deco et al. (2017) https://dx.doi.org/10.1038%2Fs41598-017-03073-5]. For parameter "a" <= 0, the dynamics of the system are a steady state with resonant frequency "f" [Hz], meaning in the stochastic system driven by white noise the spectrum has a peak at "f" Hz. For "a" > 0, there are deterministic oscillations at "f" Hz.
+Model parameters:   
+    'Region Label'               'a'          'f [Hz]' 
+    'right superior fronta…'    [-0.0500]    [ 7.0805]
+    'left superior frontal…'    [-0.0500]    [ 8.4742]
+    'right medial frontal …'    [-0.0500]    [ 7.3927]
+    'left medial frontal g…'    [-0.0500]    [10.6545]
+    'right inferior fronta…'    [-0.0500]    [10.9553]
+    'left inferior frontal…'    [-0.0500]    [ 8.5335]
+    'right orbital gyrus'        [-0.0500]    [ 7.3388]
+    'left oribital gyrus'        [-0.0500]    [ 9.8745]
+    'right precentral gyrus'     [-0.0500]    [ 9.4194]
+    'left precentral gyrus'      [-0.0500]    [ 9.2459]
+    'right paracentral gyrus'    [-0.0500]    [ 6.4192]
+    'left paracentral gyrus'     [-0.0500]    [10.8685]
+    'right superior tempor…'    [-0.0500]    [ 6.1476]
+    'left superior tempora…'    [-0.0500]    [10.6215]
+    'right middle temporal…'    [-0.0500]    [12.3847]
+    'left middle temporal …'    [-0.0500]    [ 6.7264]
+    'right inferior tempor…'    [-0.0500]    [ 7.5317]
+    'left inferior tempora…'    [-0.0500]    [ 6.7305]
+    'right fusiform gyrus'       [-0.0500]    [ 9.8227]
+    'left fusiform gyrus'        [-0.0500]    [ 6.3488]
+    'right parahippocampal…'    [-0.0500]    [ 8.9535]
+    'left parahippocampal …'    [-0.0500]    [ 8.9258]
+    'right posterior super…'    [-0.0500]    [ 9.0494]
+    'left posterior superi…'    [-0.0500]    [ 7.6188]
+    'right superior pariet…'    [-0.0500]    [10.5941]
+    'left suprior parietal…'    [-0.0500]    [ 6.2792]
+    'right inferior pariet…'    [-0.0500]    [12.2040]
+    'left superior parieta…'    [-0.0500]    [ 9.5646]
+    'right precuneus'            [-0.0500]    [ 8.1793]
+    'left precuneus'             [-0.0500]    [10.7941]
+    'right postcentral gyrus'    [-0.0500]    [ 8.1874]
+    'left postcentral gyrus'     [-0.0500]    [ 7.0050]
+    'right insular gyrus'        [-0.0500]    [11.4081]
+    'left insular gyrus'         [-0.0500]    [10.9227]
+    'right cingulate gyrus'      [-0.0500]    [11.5712]
+    'left cingulate gyrus'       [-0.0500]    [ 8.1566]
+    'right medioventral oc…'    [-0.0500]    [12.5927]
+    'left medioventral occ…'    [-0.0500]    [10.9264]
+    'right lateral occipit…'    [-0.0500]    [12.4610]
+    'left lateral occipita…'    [-0.0500]    [10.0038]
+
+
+- NUMERICAL INTEGRATION - 
+Dynamics were simulated for 2000 ms. Numerical integration used a stochastic Euler-Maryuama method with step size 0.500 ms. Simulations were initialized with all variables equal to zero, and 500 ms of simulation was ran and disregarded to avoid effects of transients.
+
+- FORWARD MODELLING TO EEG - 
+Dynamics were mapped to 19 EEG electrodes (described in the table below). The cortical surface and 3 boundary element method (BEM) shells (scalp, skull, brain) were extracted from the Brainstorm software package [https://neuroimage.usc.edu/brainstorm/], using the ICBM152_2016 template model, which is a non-linear average MRI over 152 subjects [Fonov et al. (2009) http://dx.doi.org/10.1016/S1053-8119(09)70884-5]. 8004 sources were distributed along the cortex, and oriented normally to the surface. For each region of the brain, the centroid and average orientation of all source points within the region were used to construct a leadfield matrix from the region to each electrode using the OpenMEEG BEM algorithm [Gramfort et al. (2011) http://dx.doi.org/10.1155/2011/923703] implemented in the Fieldtrip software [Oostenveld et al.(2011)http://dx.doi.org/10.1155/2011/156869].
+EEG electrodes:
+    'Fp1'
+    'Fp2'
+    'F7'
+    'F3'
+    'Fz'
+    'F4'
+    'F8'
+    'T3'
+    'C3'
+    'Cz'
+    'C4'
+    'T4'
+    'T5'
+    'P3'
+    'Pz'
+    'P4'
+    'T6'
+    'O1'
+    'O2'
+

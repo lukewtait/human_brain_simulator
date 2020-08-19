@@ -1,0 +1,78 @@
+--- Running Brain Simulator ---
+
+Validating input parameters... Done
+Using user supplied atlas
+ Generating connectome... Done 
+Generating ODE parameters... Done 
+Generating ODE function... Done 
+Generating simulation parameters... Done 
+Initializing variables... Done 
+Simulating... Done
+Simulation time 0.19 seconds
+Using user-supplied leadfield matrix 
+ Forward mapping to EEG... Done
+Plotting eeg... Done
+
+
+--- Overview of simulation options ---
+
+- ATLAS - 
+Atlas: custom
+More info: Custom atlas used
+19 regions used in simulations (outlined in table below).
+
+- CONNECTOME - 
+Connectome: Custom
+
+ - DYNAMIC MODEL - 
+Dynamic model: hopf
+More info: Each node was modelled as the normal form of a supercritical Hopf bifurcation. The model is implemented as described in [Tait et al. (2019) Under review with Clinical Neurophysiology], and was based on that of [Deco et al. (2017) https://dx.doi.org/10.1038%2Fs41598-017-03073-5]. For parameter "a" <= 0, the dynamics of the system are a steady state with resonant frequency "f" [Hz], meaning in the stochastic system driven by white noise the spectrum has a peak at "f" Hz. For "a" > 0, there are deterministic oscillations at "f" Hz.
+Model parameters:   
+    'Region Label'    'a'          'f [Hz]' 
+    [           1]    [-0.0500]    [ 8.3081]
+    [           2]    [-0.0500]    [ 9.1073]
+    [           3]    [-0.0500]    [12.2062]
+    [           4]    [-0.0500]    [10.7340]
+    [           5]    [-0.0500]    [11.0717]
+    [           6]    [-0.0500]    [ 6.9220]
+    [           7]    [-0.0500]    [ 7.8276]
+    [           8]    [-0.0500]    [ 8.7800]
+    [           9]    [-0.0500]    [ 6.1217]
+    [          10]    [-0.0500]    [10.7651]
+    [          11]    [-0.0500]    [12.6169]
+    [          12]    [-0.0500]    [ 9.9584]
+    [          13]    [-0.0500]    [11.0238]
+    [          14]    [-0.0500]    [ 9.2967]
+    [          15]    [-0.0500]    [ 6.8286]
+    [          16]    [-0.0500]    [ 8.4420]
+    [          17]    [-0.0500]    [ 9.2567]
+    [          18]    [-0.0500]    [11.5614]
+    [          19]    [-0.0500]    [ 6.2586]
+
+
+- NUMERICAL INTEGRATION - 
+Dynamics were simulated for 2000 ms. Numerical integration used a stochastic Euler-Maryuama method with step size 0.500 ms. Simulations were initialized with all variables equal to zero, and 500 ms of simulation was ran and disregarded to avoid effects of transients.
+
+- FORWARD MODELLING TO EEG - 
+Dynamics were mapped to 19 EEG electrodes (described in the table below). The cortical surface and 3 boundary element method (BEM) shells (scalp, skull, brain) were extracted from the Brainstorm software package [https://neuroimage.usc.edu/brainstorm/], using the ICBM152_2016 template model, which is a non-linear average MRI over 152 subjects [Fonov et al. (2009) http://dx.doi.org/10.1016/S1053-8119(09)70884-5]. 8004 sources were distributed along the cortex, and oriented normally to the surface. For each region of the brain, the centroid and average orientation of all source points within the region were used to construct a leadfield matrix from the region to each electrode using the OpenMEEG BEM algorithm [Gramfort et al. (2011) http://dx.doi.org/10.1155/2011/923703] implemented in the Fieldtrip software [Oostenveld et al.(2011)http://dx.doi.org/10.1155/2011/156869].
+EEG electrodes:
+    'Fp1'
+    'Fp2'
+    'F7'
+    'F3'
+    'Fz'
+    'F4'
+    'F8'
+    'T3'
+    'C3'
+    'Cz'
+    'C4'
+    'T4'
+    'T5'
+    'P3'
+    'Pz'
+    'P4'
+    'T6'
+    'O1'
+    'O2'
+

@@ -1,0 +1,85 @@
+--- Running Brain Simulator ---
+
+Validating input parameters... Done
+Generating atlas... Done 
+Generating connectome... Done 
+Generating ODE parameters... Done 
+Generating ODE function... Done 
+Generating simulation parameters... Done 
+Initializing variables... Done 
+Simulating... Done
+Simulation time 52.07 seconds
+Making leadfield matrix... Done
+Forward mapping to EEG... Done
+Plotting eeg... Done
+
+
+--- Overview of simulation options ---
+
+- ATLAS - 
+Atlas: desikankilliany
+More info: Desikan et al. (2006) https://doi.org/10.1016/j.neuroimage.2006.01.021
+10 regions used in simulations (outlined in table below).
+
+- CONNECTOME - 
+Connectome: Custom
+
+ - DYNAMIC MODEL - 
+Dynamic model: nmm
+More info: Each node was modelled as a neural mass model consisting of three populations, implemented as described in [Moran et al. (2013) https://dx.doi.org/10.3389%2Ffncom.2013.00057; "LFP model"]. It is based on the Jansen-Rit formulation [Jansen and Rit (1995) https://doi.org/10.1007/BF00199471]. Pyramidal cells gained excitatory input from L4 stellate cells and supragranular inhibitory interneurons. The stellate populations and inhibitory populations both gain input from the pyramidal population, with no stellate <-> inhibitory connectivity. Following the modifications made by [Moran et al. (2007) https://doi.org/10.1016/j.neuroimage.2007.05.032], recurrent inhibition was also included in the model.
+Model parameters:   
+  Columns 1 through 5
+
+    'Region Label'           'He [mV]'    'Hi [mV]'    'tau_e [ms]'    'tau_i [ms]'
+    'rostralmiddlefron…'    [      4]    [     32]    [        16]    [   30.8546]
+    'parsopercularis L'      [      4]    [     32]    [        16]    [   22.8347]
+    'insula L'               [      4]    [     32]    [        16]    [   25.6297]
+    'transversetempora…'    [      4]    [     32]    [        16]    [   25.3222]
+    'pericalcarine R'        [      4]    [     32]    [        16]    [   22.5354]
+    'fusiform L'             [      4]    [     32]    [        16]    [   27.7633]
+    'paracentral L'          [      4]    [     32]    [        16]    [   26.5505]
+    'superiorfrontal L'      [      4]    [     32]    [        16]    [   27.0587]
+    'caudalmiddlefront…'    [      4]    [     32]    [        16]    [   29.1415]
+    'insula R'               [      4]    [     32]    [        16]    [   21.0418]
+
+  Columns 6 through 13
+
+    'g_pe'    'g_ep'    'g_pi'    'g_ip'    'g_ii'    'r'    'v0'    'u'
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+    [ 128]    [ 128]    [  64]    [  64]    [  16]    [2]    [ 1]    [0]
+
+
+- NUMERICAL INTEGRATION - 
+Dynamics were simulated for 5000 ms. Numerical integration used a stochastic Euler-Maryuama method with step size 0.010 ms. Simulations were initialized with all variables equal to zero, and 1000 ms of simulation was ran and disregarded to avoid effects of transients.
+
+- FORWARD MODELLING TO EEG - 
+Dynamics were mapped to 19 EEG electrodes (described in the table below). The cortical surface and 3 boundary element method (BEM) shells (scalp, skull, brain) were extracted from the Brainstorm software package [https://neuroimage.usc.edu/brainstorm/], using the ICBM152_2016 template model, which is a non-linear average MRI over 152 subjects [Fonov et al. (2009) http://dx.doi.org/10.1016/S1053-8119(09)70884-5]. 8004 sources were distributed along the cortex, and oriented normally to the surface. For each region of the brain, the centroid and average orientation of all source points within the region were used to construct a leadfield matrix from the region to each electrode using the OpenMEEG BEM algorithm [Gramfort et al. (2011) http://dx.doi.org/10.1155/2011/923703] implemented in the Fieldtrip software [Oostenveld et al.(2011)http://dx.doi.org/10.1155/2011/156869].
+EEG electrodes:
+    'Fp1'
+    'Fp2'
+    'F7'
+    'F3'
+    'Fz'
+    'F4'
+    'F8'
+    'T3'
+    'C3'
+    'Cz'
+    'C4'
+    'T4'
+    'T5'
+    'P3'
+    'Pz'
+    'P4'
+    'T6'
+    'O1'
+    'O2'
+
